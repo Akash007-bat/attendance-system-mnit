@@ -1,0 +1,2 @@
+[2025-03-18 23:47:41] Face processing error: too many values to unpack (expected 2)
+[2025-03-18 23:47:41] too many values to unpack (expected 2)
