@@ -12,11 +12,11 @@ ATTENDANCE_FILE = "attendance.csv"   # This is now redundant but kept for compat
 ENCODINGS_FILE = "face_encodings.pkl"
 TOLERANCE = 0.55
 
-# Create directory if not exists - ADDED THIS BLOCK
+# Create directory if not exists 
 os.makedirs(ATTENDANCE_DIR, exist_ok=True)
 
 def get_daily_filename():
-    """Generate filename for daily attendance"""  # ADDED THIS FUNCTION
+    """Generate filename for daily attendance"""  
     today_date = datetime.now().strftime("%Y-%m-%d")
     return os.path.join(ATTENDANCE_DIR, f"attendance_{today_date}.csv")
 
