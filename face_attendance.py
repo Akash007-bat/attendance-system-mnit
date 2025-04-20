@@ -59,7 +59,6 @@ def train_model():
         # Step 2: Process image
         try:
             image = face_recognition.load_image_file(filepath)
-            
             # Detect face locations with CNN model (more accurate)
             face_locations = face_recognition.face_locations(image, model="hog")
             if not face_locations:
@@ -155,12 +154,14 @@ def mark_attendance(image_path):
 
     # Show resized image
     cv2.imshow("Results", resized_image)
-    cv2.waitKey(0)
+    while True:
+        key = cv2.waitKey(1) & 0xFF
+        # Exit if 'q' is pressed or window is closed
+        if key == ord('q') or cv2.getWindowProperty("Results", cv2.WND_PROP_VISIBLE) < 1:
+            break
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    # ... (keep existing main code unchanged) ...
-     # Force retrain if no model exists
     if not os.path.exists(ENCODINGS_FILE):
         train_model()
     else:
